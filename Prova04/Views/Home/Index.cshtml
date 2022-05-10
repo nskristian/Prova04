@@ -1,0 +1,46 @@
+﻿@model Prova04.Models.ConvertModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container mt-3">
+        <br />
+        <br />
+        <h1>Sistema de conversão de dólar para real</h1>
+        @using (Html.BeginForm())
+        {
+
+            <label>Dólar americano:</label>
+            @Html.TextBoxFor(model => model.Money,
+                    new
+                    {
+                        @class = "form-control col-md-4",
+                        @placeholder = "Digite aqui"
+                    })
+            <br />
+            <input type="submit" class="btn btn-success" value="Converter" />
+        }
+        <br />
+        <br />
+        @if (TempData["result"] != null)
+        {
+            <div>
+                <p>BRL: </p>
+                <strong>@TempData["result"]</strong>
+            </div>
+        }
+    </div>
+
+    <script src="~/js/jquery-3.6.0.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+</body>
+</html>
